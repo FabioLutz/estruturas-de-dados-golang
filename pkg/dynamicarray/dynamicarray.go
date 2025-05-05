@@ -29,17 +29,15 @@ func (dynamicArray *dynamicArray) Get(index uint) int {
 	return dynamicArray.data[index]
 }
 
-func (dynamicArray *dynamicArray) Set(index uint, value int) *dynamicArray {
+func (dynamicArray *dynamicArray) Set(index uint, value int) {
 	if length := len(dynamicArray.data); int(index) >= length {
 		panic(fmt.Sprintf("failed to add: index %d out of bounds [0:%d]", index, length))
 	}
 
 	dynamicArray.data[index] = value
-	
-	return dynamicArray
 }
 
-func (dynamicArray *dynamicArray) Add(value int) *dynamicArray {
+func (dynamicArray *dynamicArray) Add(value int) {
 	var length int = len(dynamicArray.data)
 
 	var newArray = make([]int, length+1)
@@ -49,11 +47,9 @@ func (dynamicArray *dynamicArray) Add(value int) *dynamicArray {
 	newArray[length] = value
 
 	dynamicArray.data = newArray
-
-	return dynamicArray
 }
 
-func (dynamicArray *dynamicArray) AddIn(index uint, value int) *dynamicArray {
+func (dynamicArray *dynamicArray) AddIn(index uint, value int) {
 	var length int = len(dynamicArray.data)
 
 	if int(index) >= length {
@@ -69,11 +65,9 @@ func (dynamicArray *dynamicArray) AddIn(index uint, value int) *dynamicArray {
 	dynamicArray.data = append(newArray1, newArray2...)
 
 	dynamicArray.data[index] = value
-
-	return dynamicArray
 }
 
-func (dynamicArray *dynamicArray) RemoveFirst() *dynamicArray {
+func (dynamicArray *dynamicArray) RemoveFirst() {
 	var length int = len(dynamicArray.data)
 
 	if length == 0 {
@@ -85,11 +79,9 @@ func (dynamicArray *dynamicArray) RemoveFirst() *dynamicArray {
 	copy(newArray, dynamicArray.data[:length-1])
 
 	dynamicArray.data = newArray
-
-	return dynamicArray
 }
 
-func (dynamicArray *dynamicArray) RemoveIn(index uint) *dynamicArray {
+func (dynamicArray *dynamicArray) RemoveIn(index uint) {
 	var length int = len(dynamicArray.data)
 
 	if int(index) >= length {
@@ -103,6 +95,4 @@ func (dynamicArray *dynamicArray) RemoveIn(index uint) *dynamicArray {
 	copy(newArray2, dynamicArray.data[index+1:])
 
 	dynamicArray.data = append(newArray1, newArray2...)
-
-	return dynamicArray
 }

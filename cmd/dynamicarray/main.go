@@ -23,6 +23,8 @@ func main() {
 
 	fmt.Println(array)
 
+	fmt.Println(array.Get(1))
+
 	newArray := dynamicarray.NewWith(1,2,3)
 	
 	newArray.AddIn(1,83)

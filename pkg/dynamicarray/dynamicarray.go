@@ -36,6 +36,26 @@ func (dynamicArray *dynamicArray) Add(value int) *dynamicArray {
 	return dynamicArray
 }
 
+func (dynamicArray *dynamicArray) AddIn(index uint, value int) *dynamicArray {
+	var length int = len(dynamicArray.data)
+
+	if int(index) >= length {
+		panic(fmt.Sprintf("failed to add: index %d out of bounds [0:%d]", index, length))
+	}
+
+	var newArray1 = make([]int, index+1)
+	var newArray2 = make([]int, length-int(index))
+
+	copy(newArray1, dynamicArray.data[:index])
+	copy(newArray2, dynamicArray.data[index:])
+
+	dynamicArray.data = append(newArray1, newArray2...)
+
+	dynamicArray.data[index] = value
+
+	return dynamicArray
+}
+
 func (dynamicArray *dynamicArray) RemoveFirst() *dynamicArray {
 	var length int = len(dynamicArray.data)
 

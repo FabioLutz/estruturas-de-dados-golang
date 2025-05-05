@@ -23,24 +23,22 @@ func main() {
 
 	fmt.Println(array)
 
-	newArray := dynamicarray.NewWith(3,2,1)
+	newArray := dynamicarray.NewWith(1,2,3)
+	
+	newArray.AddIn(1,83)
 
-	newArray.Add(9)
-	newArray.Add(8)
-	newArray.Add(7)
+	fmt.Println(newArray)
+
+	newArray.AddIn(3,99)
 
 	fmt.Println(newArray)
 
 	newArray.RemoveFirst()
 	newArray.RemoveFirst()
-	newArray.RemoveFirst()
 
 	fmt.Println(newArray)
 
-	newArray.RemoveFirst()
-	newArray.RemoveFirst()
-	newArray.Add(5)
-	newArray.Add(6)
+	newArray.AddIn(2,142)
 
 	fmt.Println(newArray)
 }

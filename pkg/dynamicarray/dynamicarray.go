@@ -71,3 +71,21 @@ func (dynamicArray *dynamicArray) RemoveFirst() *dynamicArray {
 
 	return dynamicArray
 }
+
+func (dynamicArray *dynamicArray) RemoveIn(index uint) *dynamicArray {
+	var length int = len(dynamicArray.data)
+
+	if int(index) >= length {
+		panic(fmt.Sprintf("failed to add: index %d out of bounds [0:%d]", index, length))
+	}
+
+	var newArray1 = make([]int, index)
+	var newArray2 = make([]int, length-int(index)-1)
+
+	copy(newArray1, dynamicArray.data[:index])
+	copy(newArray2, dynamicArray.data[index+1:])
+
+	dynamicArray.data = append(newArray1, newArray2...)
+
+	return dynamicArray
+}

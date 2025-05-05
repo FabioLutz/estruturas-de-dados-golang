@@ -41,4 +41,16 @@ func main() {
 	newArray.AddIn(2,142)
 
 	fmt.Println(newArray)
+
+	newArray2 := dynamicarray.NewWith(1,2,3,4,5,6)
+
+	fmt.Println(newArray2)
+
+	newArray2.RemoveIn(0)
+
+	fmt.Println(newArray2)
+
+	newArray2.RemoveIn(3)
+
+	fmt.Println(newArray2)
 }

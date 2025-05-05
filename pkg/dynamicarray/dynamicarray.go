@@ -14,6 +14,13 @@ func New() *dynamicArray {
 	}
 }
 
+func NewLength(length uint) *dynamicArray {
+	return &dynamicArray{
+		data:   make([]int, length),
+		length: int(length),
+	}
+}
+
 func NewWith(values ...int) *dynamicArray {
 	return &dynamicArray{
 		data:   values,

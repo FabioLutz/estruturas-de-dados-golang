@@ -63,4 +63,8 @@ func main() {
 	newArray2.RemoveIn(3)
 
 	fmt.Println(newArray2)
+
+	newArray3 := dynamicarray.NewLength(10)
+
+	fmt.Println(newArray3)
 }

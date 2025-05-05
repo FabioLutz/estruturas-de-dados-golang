@@ -30,4 +30,17 @@ func main() {
 	newArray.Add(7)
 
 	fmt.Println(newArray)
+
+	newArray.RemoveFirst()
+	newArray.RemoveFirst()
+	newArray.RemoveFirst()
+
+	fmt.Println(newArray)
+
+	newArray.RemoveFirst()
+	newArray.RemoveFirst()
+	newArray.Add(5)
+	newArray.Add(6)
+
+	fmt.Println(newArray)
 }

@@ -26,7 +26,15 @@ func main() {
 	fmt.Println(array.Get(1))
 
 	newArray := dynamicarray.NewWith(1,2,3)
+
+	newArray.Set(0, 2)
+
+	fmt.Println(newArray.Get(0))
+
+	newArray.Set(2, 7)
 	
+	fmt.Println(newArray.Get(2))
+
 	newArray.AddIn(1,83)
 
 	fmt.Println(newArray)

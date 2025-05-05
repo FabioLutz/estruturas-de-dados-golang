@@ -29,6 +29,16 @@ func (dynamicArray *dynamicArray) Get(index uint) int {
 	return dynamicArray.data[index]
 }
 
+func (dynamicArray *dynamicArray) Set(index uint, value int) *dynamicArray {
+	if length := len(dynamicArray.data); int(index) >= length {
+		panic(fmt.Sprintf("failed to add: index %d out of bounds [0:%d]", index, length))
+	}
+
+	dynamicArray.data[index] = value
+	
+	return dynamicArray
+}
+
 func (dynamicArray *dynamicArray) Add(value int) *dynamicArray {
 	var length int = len(dynamicArray.data)
 

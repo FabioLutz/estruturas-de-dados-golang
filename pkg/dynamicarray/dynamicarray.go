@@ -12,6 +12,12 @@ func New() *dynamicArray {
 	}
 }
 
+func NewWith(values ...int) *dynamicArray {
+	return &dynamicArray{
+		data: values,
+	}
+}
+
 func (dynamicArray *dynamicArray) String() string {
 	return fmt.Sprintf("%v", dynamicArray.data)
 }

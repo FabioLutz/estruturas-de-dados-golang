@@ -22,4 +22,12 @@ func main() {
 	array.Add(3)
 
 	fmt.Println(array)
+
+	newArray := dynamicarray.NewWith(3,2,1)
+
+	newArray.Add(9)
+	newArray.Add(8)
+	newArray.Add(7)
+
+	fmt.Println(newArray)
 }

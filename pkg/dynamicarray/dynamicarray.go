@@ -32,6 +32,10 @@ func (dynamicArray *dynamicArray) String() string {
 	return fmt.Sprintf("%v", dynamicArray.data)
 }
 
+func (dynamicArray *dynamicArray) Len() int {
+	return dynamicArray.length
+}
+
 func (dynamicArray *dynamicArray) Get(index uint) int {
 	if int(index) >= dynamicArray.length {
 		panic(fmt.Sprintf("failed to add: index %d out of bounds [0:%d]", index, dynamicArray.length))

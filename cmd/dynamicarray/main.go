@@ -52,6 +52,8 @@ func main() {
 
 	fmt.Println(newArray)
 
+	fmt.Printf("Length: %d\n", newArray.Len())
+
 	newArray2 := dynamicarray.NewWith(1,2,3,4,5,6)
 
 	fmt.Println(newArray2)
@@ -67,4 +69,6 @@ func main() {
 	newArray3 := dynamicarray.NewLength(10)
 
 	fmt.Println(newArray3)
+
+	fmt.Printf("Length: %d\n", newArray3.Len())
 }

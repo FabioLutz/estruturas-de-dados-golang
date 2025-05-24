@@ -38,14 +38,14 @@ func (dynamicArray *dynamicArray) Len() int {
 
 func (dynamicArray *dynamicArray) Get(index uint) int {
 	if int(index) >= dynamicArray.length {
-		panic(fmt.Sprintf("failed to add: index %d out of bounds [0:%d]", index, dynamicArray.length))
+		panic(fmt.Sprintf("failed to get value: index %d out of bounds [0:%d]", index, dynamicArray.length))
 	}
 	return dynamicArray.data[index]
 }
 
 func (dynamicArray *dynamicArray) Set(index uint, value int) {
 	if int(index) >= dynamicArray.length {
-		panic(fmt.Sprintf("failed to add: index %d out of bounds [0:%d]", index, dynamicArray.length))
+		panic(fmt.Sprintf("failed to set value: index %d out of bounds [0:%d]", index, dynamicArray.length))
 	}
 
 	dynamicArray.data[index] = value
@@ -94,7 +94,7 @@ func (dynamicArray *dynamicArray) RemoveFirst() {
 
 func (dynamicArray *dynamicArray) RemoveIn(index uint) {
 	if int(index) >= dynamicArray.length {
-		panic(fmt.Sprintf("failed to add: index %d out of bounds [0:%d]", index, dynamicArray.length))
+		panic(fmt.Sprintf("failed to remove: index %d out of bounds [0:%d]", index, dynamicArray.length))
 	}
 
 	var newArray1 = make([]int, index)

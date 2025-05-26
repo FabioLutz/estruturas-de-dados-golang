@@ -165,3 +165,55 @@ func TestAdd(t *testing.T) {
 		t.Errorf("Incorrect length field: Expected %d, Actual %d", expectedLength, actualArray.length)
 	}
 }
+
+func TestAddIn(t *testing.T) {
+	var tests = []struct {
+		name         string
+		array        dynamicArray
+		inputIndex   int
+		inputValue   int
+		expectedData []int
+		expectPanic  bool
+		panicMsg     string
+	}{
+		{"valid array", dynamicArray{[]int{1, 2, 4, 5}, 4}, 2, 3, []int{1, 2, 3, 4, 5}, false, ""},
+		{"out of range", dynamicArray{[]int{1, 2, 3}, 3}, 10, -1, []int{}, true, "failed to add: index 10 out of bounds [0:3]"},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			defer func() {
+				if recover := recover(); recover != nil {
+					if !tt.expectPanic {
+						t.Errorf("Unexpected Panic: %v", recover)
+					}
+					if message, ok := recover.(string); ok {
+						if message != tt.panicMsg {
+							t.Errorf("Incorrect panic message: Expected %s, Actual %s", tt.panicMsg, message)
+						}
+					} else {
+						t.Errorf("Panic is not a string: %v", recover)
+					}
+				} else {
+					if tt.expectPanic {
+						t.Errorf("Expected error, none received")
+					}
+				}
+			}()
+
+			tt.array.AddIn(uint(tt.inputIndex), tt.inputValue)
+
+			if !reflect.DeepEqual(tt.array.data, tt.expectedData) {
+				t.Errorf("Incorrect value: Expected %d, Actual %d", tt.expectedData, tt.array.data)
+			}
+
+			if len(tt.array.data) != len(tt.expectedData) {
+				t.Errorf("Incorrect array length: Expected %d, Actual %d", len(tt.expectedData), len(tt.array.data))
+			}
+
+			if tt.array.length != len(tt.expectedData) {
+				t.Errorf("Incorrect length field: Expected %d, Actual %d", len(tt.expectedData), tt.array.length)
+			}
+		})
+	}
+}

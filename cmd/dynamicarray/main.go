@@ -43,8 +43,8 @@ func main() {
 
 	fmt.Println(newArray)
 
-	newArray.RemoveFirst()
-	newArray.RemoveFirst()
+	newArray.Remove()
+	newArray.Remove()
 
 	fmt.Println(newArray)
 

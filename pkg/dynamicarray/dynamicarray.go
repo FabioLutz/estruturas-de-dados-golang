@@ -79,7 +79,7 @@ func (dynamicArray *dynamicArray) AddIn(index uint, value int) {
 	dynamicArray.data[index] = value
 }
 
-func (dynamicArray *dynamicArray) RemoveFirst() {
+func (dynamicArray *dynamicArray) Remove() {
 	if dynamicArray.length == 0 {
 		panic("failed to remove value: dynamic array is empty")
 	}

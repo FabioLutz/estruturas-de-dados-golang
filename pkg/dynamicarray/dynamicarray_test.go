@@ -217,3 +217,23 @@ func TestAddIn(t *testing.T) {
 		})
 	}
 }
+
+func TestRemove(t *testing.T) {
+	expectedData := []int{1, 2, 3}
+	expectedLength := 3
+	actualArray := dynamicArray{[]int{1, 2, 3, 4}, 4}
+
+	actualArray.Remove()
+
+	if !reflect.DeepEqual(actualArray.data, expectedData) {
+		t.Errorf("Incorrect data: Expected %v, Actual %v", expectedData, actualArray.data)
+	}
+
+	if len(actualArray.data) != expectedLength {
+		t.Errorf("Incorrect array length: Expected %d, Actual %d", expectedLength, len(actualArray.data))
+	}
+
+	if actualArray.length != expectedLength {
+		t.Errorf("Incorrect length field: Expected %d, Actual %d", expectedLength, actualArray.length)
+	}
+}

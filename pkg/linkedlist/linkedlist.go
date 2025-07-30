@@ -2,18 +2,38 @@ package linkedlist
 
 import "fmt"
 
-type linkedList struct {
+type Node struct {
 	data int
-	next *linkedList
+	next *Node
 }
 
-func New(value int) *linkedList {
-	return &linkedList{
-		data: value,
-		next: nil,
+type LinkedList struct {
+	head *Node
+}
+
+func New(value int) *LinkedList {
+	newNode := Node{data: value, next: nil}
+
+	return &LinkedList{head: &newNode}
+}
+
+func (linkedList *LinkedList) String() string {
+	current := linkedList.head
+	
+	if current == nil {
+		return "[]"
 	}
-}
-
-func (linkedList *linkedList) String() string {
-	return fmt.Sprintf("%v", linkedList.data)
+	
+	var stringList string
+	for current != nil {
+		stringList += fmt.Sprint(current.data)
+		
+		if current.next != nil {
+			stringList += " -> "
+		}
+		
+		current = current.next
+	}
+	
+	return fmt.Sprint("[" + stringList + "]")
 }

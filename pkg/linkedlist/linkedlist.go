@@ -54,3 +54,9 @@ func (linkedList *LinkedList) Add(value int) {
 
 	current.next = newNode
 }
+
+func (linkedList *LinkedList) RemoveFirst() {
+	if linkedList.head != nil {
+		linkedList.head = linkedList.head.next
+	}
+}

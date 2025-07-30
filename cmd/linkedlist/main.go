@@ -16,5 +16,8 @@ func main() {
 	list.Add(4)
 	list.Add(5)
 	
+	list.RemoveFirst()
+	list.RemoveFirst()
+	
 	fmt.Println(list)
 }

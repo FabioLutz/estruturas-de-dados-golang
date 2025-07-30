@@ -37,3 +37,20 @@ func (linkedList *LinkedList) String() string {
 	
 	return fmt.Sprint("[" + stringList + "]")
 }
+
+func (linkedList *LinkedList) Add(value int) {
+	newNode := &Node{data: value, next: nil}
+
+	if linkedList.head == nil {
+		linkedList.head = newNode
+		return
+	}
+
+	current := linkedList.head
+
+	for current.next != nil {
+		current = current.next
+	}
+
+	current.next = newNode
+}

@@ -60,3 +60,17 @@ func (linkedList *LinkedList) RemoveFirst() {
 		linkedList.head = linkedList.head.next
 	}
 }
+
+func (linkedList *LinkedList) RemoveLast() {
+	current := linkedList.head
+	
+	if current == nil || current.next == nil {
+		return
+	}
+	
+	for current.next.next != nil {
+		current = current.next
+	}
+	
+	current.next = nil
+}

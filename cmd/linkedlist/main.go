@@ -20,4 +20,9 @@ func main() {
 	list.RemoveFirst()
 	
 	fmt.Println(list)
+	
+	list.RemoveLast()
+	list.RemoveLast()
+	
+	fmt.Println(list)
 }
